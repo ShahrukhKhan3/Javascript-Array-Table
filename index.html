@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JavaScript Activity 9</title>
+
+    <script
+
+      src="https://kit.fontawesome.com/6644f3bee6.js"
+
+      crossorigin="anonymous"
+
+    ></script>
+
+    <style>
+
+      .container {
+
+        width: 50%;
+
+        margin: auto;
+
+        background-color: #d2d2d2;
+
+        padding: 10px;
+
+        border-radius: 5px;
+
+        border: 2px solid darkgrey;
+
+        margin-top: 40px;
+
+      }
+
+      table {
+
+        width: 100%;
+
+        background-color: white;
+
+      }
+
+      td {
+
+        width: 50%;
+
+      }
+
+      table,
+
+      td,
+
+      th {
+
+        border: 2px solid darkgrey;
+
+        border-collapse: collapse;
+
+      }
+
+      td {
+
+        padding: 5px;
+
+      }
+
+      .info {
+
+        color: #2019ff;
+
+      }
+
+      .info h1 {
+
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+
+        font-size: 17px;
+
+        letter-spacing: 0px;
+
+        font-weight: 900;
+
+        margin: 0;
+
+      }
+
+      .heading {
+
+        color: #088208;
+
+        text-align: center;
+
+        margin: 10px;
+
+        margin-top: 0;
+
+      }
+
+
+
+      button {
+
+        background-color: #088208;
+
+        color: white;
+
+        width: 150px;
+
+        padding: 15px 0px;
+
+        cursor: pointer;
+
+        border: 1px solid #088208;
+
+      }
+
+      button:hover {
+
+        color: #088208;
+
+        background-color: white;
+
+        transition: 0.5s ease;
+
+      }
+
+      .newData {
+
+        width: 50%;
+
+        margin: auto;
+
+        display: flex;
+
+        justify-content: space-evenly;
+
+        margin-top: 50px;
+
+      }
+
+      .arr {
+
+        width: 97%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        border: 1px solid darkgray;
+
+      }
+
+      .arr p {
+
+        margin: 10px;
+
+      }
+
+      .first {
+
+        width: 50%;
+
+      }
+
+      td,
+
+      th {
+
+        width: 12%;
+
+      }
+
+      @media (max-width: 650px) {
+
+        .container {
+
+          width: 90%;
+
+          margin: auto;
+
+        }
+
+        .newData {
+
+          flex-direction: column;
+
+        }
+
+        button {
+
+          margin-bottom: 20px;
+
+        }
+
+        .heading {
+
+          font-size: 25px;
+
+        }
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <h1 class="heading">
+
+        <i class="fab fa-canadian-maple-leaf"></i>
+
+        <i class="fab fa-canadian-maple-leaf"></i> Calculator
+
+        <i class="fab fa-canadian-maple-leaf"></i>
+
+        <i class="fab fa-canadian-maple-leaf"></i>
+
+      </h1>
+
+      <table>
+
+        <tr>
+
+          <th class="first">Info</th>
+
+          <th>1st</th>
+
+          <th>2nd</th>
+
+          <th>3rd</th>
+
+          <th>4th</th>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first">
+
+            <h1>Array 1:</h1>
+
+          </td>
+
+          <td id="arr11"></td>
+
+          <td id="arr12"></td>
+
+          <td id="arr13"></td>
+
+          <td id="arr14"></td>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first"><h1>Array 2:</h1></td>
+
+          <td id="arr21"></td>
+
+          <td id="arr22"></td>
+
+          <td id="arr23"></td>
+
+          <td id="arr24"></td>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first"><h1>Sum of Arrays:</h1></td>
+
+          <td id="sum1"></td>
+
+          <td id="sum2"></td>
+
+          <td id="sum3"></td>
+
+          <td id="sum4"></td>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first"><h1>Difference of Arrays:</h1></td>
+
+          <td id="diff1"></td>
+
+          <td id="diff2"></td>
+
+          <td id="diff3"></td>
+
+          <td id="diff4"></td>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first"><h1>Multiplication of Arrays:</h1></td>
+
+          <td id="mul1"></td>
+
+          <td id="mul2"></td>
+
+          <td id="mul3"></td>
+
+          <td id="mul4"></td>
+
+        </tr>
+
+        <tr>
+
+          <td class="info first"><h1>Division of Arrays:</h1></td>
+
+          <td id="div1"></td>
+
+          <td id="div2"></td>
+
+          <td id="div3"></td>
+
+          <td id="div4"></td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+    <div class="newData">
+
+      <button onclick="getArrayOne()">Enter Array 1?</button>
+
+      <button onclick="getArrayTwo()">Enter Array 2?</button>
+
+      <button onclick="start()">Calculate</button>
+
+    </div>
+
+
+
+    <script>
+
+      var array1 = [88, 33, 44, 55];
+
+      var array2 = [50, 40, 30, 20];
+
+      var sum = [];
+
+      var diff = [];
+
+      var mul = [];
+
+      var div = [];
+
+      function getArrayOne() {
+
+        var newArr = [];
+
+        for (var i = 0; i < 4; i++) {
+
+          var num = parseInt(prompt(`Enter ${i + 1} Number:`));
+
+          if (num <= 0 || num > 0) {
+
+            newArr[i] = num;
+
+          } else {
+
+            alert("Invalid Input!");
+
+            return;
+
+          }
+
+        }
+
+        array1 = newArr;
+
+        getString(array1, "array1");
+
+      }
+
+
+
+      function getArrayTwo() {
+
+        var newArr = [];
+
+        for (var i = 0; i < 4; i++) {
+
+          var num = parseInt(prompt(`Enter ${i + 1} Number:`));
+
+          if (num <= 0 || num > 0) {
+
+            newArr[i] = num;
+
+          } else {
+
+            alert("Invalid Input!");
+
+            return;
+
+          }
+
+        }
+
+        array2 = newArr;
+
+        getString(array2, "array2");
+
+      }
+
+
+
+      function calSum() {
+
+        for (var i = 0; i < 4; i++) {
+
+          sum[i] = array1[i] + array2[i];
+
+        }
+
+      }
+
+
+
+      function calDiff() {
+
+        for (var i = 0; i < 4; i++) {
+
+          diff[i] = array1[i] - array2[i];
+
+        }
+
+      }
+
+
+
+      function calMul() {
+
+        for (var i = 0; i < 4; i++) {
+
+          mul[i] = array1[i] * array2[i];
+
+        }
+
+      }
+
+
+
+      function calDiv() {
+
+        for (var i = 0; i < 4; i++) {
+
+          div[i] = (array1[i] / array2[i]).toFixed(1);
+
+        }
+
+      }
+
+
+
+      function getString(arr, name) {
+
+        if (name == "array1") {
+
+          document.getElementById("arr11").innerHTML = arr[0];
+
+          document.getElementById("arr12").innerHTML = arr[1];
+
+          document.getElementById("arr13").innerHTML = arr[2];
+
+          document.getElementById("arr14").innerHTML = arr[3];
+
+        } else if (name == "array2") {
+
+          document.getElementById("arr21").innerHTML = arr[0];
+
+          document.getElementById("arr22").innerHTML = arr[1];
+
+          document.getElementById("arr23").innerHTML = arr[2];
+
+          document.getElementById("arr24").innerHTML = arr[3];
+
+        } else if (name == "sum") {
+
+          document.getElementById("sum1").innerHTML = arr[0];
+
+          document.getElementById("sum2").innerHTML = arr[1];
+
+          document.getElementById("sum3").innerHTML = arr[2];
+
+          document.getElementById("sum4").innerHTML = arr[3];
+
+        } else if (name == "diff") {
+
+          document.getElementById("diff1").innerHTML = arr[0];
+
+          document.getElementById("diff2").innerHTML = arr[1];
+
+          document.getElementById("diff3").innerHTML = arr[2];
+
+          document.getElementById("diff4").innerHTML = arr[3];
+
+        } else if (name == "mul") {
+
+          document.getElementById("mul1").innerHTML = arr[0];
+
+          document.getElementById("mul2").innerHTML = arr[1];
+
+          document.getElementById("mul3").innerHTML = arr[2];
+
+          document.getElementById("mul4").innerHTML = arr[3];
+
+        } else if (name == "div") {
+
+          document.getElementById("div1").innerHTML = arr[0];
+
+          document.getElementById("div2").innerHTML = arr[1];
+
+          document.getElementById("div3").innerHTML = arr[2];
+
+          document.getElementById("div4").innerHTML = arr[3];
+
+        }
+
+      }
+
+
+
+      function copy(arr1, arr2) {
+
+        for (var i = 0; i < 4; i++) {
+
+          arr1[i] = arr2[i];
+
+        }
+
+        return arr1;
+
+      }
+
+
+
+      function putValues() {
+
+        getString(array1, "array1");
+
+        getString(array2, "array2");
+
+        getString(sum, "sum");
+
+        getString(diff, "diff");
+
+        getString(mul, "mul");
+
+        getString(div, "div");
+
+      }
+
+
+
+      function start() {
+
+        calSum();
+
+        calDiff();
+
+        calMul();
+
+        calDiv();
+
+        putValues();
+
+      }
+
+
+
+      start();
+
+    </script>
+
+  </body>
+
+</html>
